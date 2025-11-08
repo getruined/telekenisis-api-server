@@ -68,7 +68,7 @@ app.get('/v1/content/:slug', authenticate, (req, res) => {
             data: mockContent[slug]
         });
     } else {
-        res.status(4404).json({ status: 'error', message: 'Content not found' });
+        res.status(404).json({ status: 'error', message: 'Content not found' });
     }
 });
 
