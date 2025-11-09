@@ -1,15 +1,14 @@
 const express = require('express');
 const cors = require('cors');
-const path = require('path'); // We need 'path' to serve static files
+const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
 
-// --- NEW: Serve Static Files ---
-// This line tells Express to serve any files in the 'public' folder
-// as the website's root.
+// --- Serve Static Files ---
+// This serves your index.html
 app.use(express.static(path.join(__dirname, 'public')));
 
 // --- DYNAMIC Mock Database ---
@@ -21,13 +20,8 @@ let mockContentDB = {
         "content_html": "This is the AI-generated hero title... and this is the body content."
     }
 };
-
-// ... (other mock data) ...
 const mockSocialPosts = [
-    {
-        "id": "post-xyz-123", "created_at": 1700000001, "title": "First Blog Post",
-        "content_html": "<p>This is our first social post!</p>"
-    }
+    { "id": "post-xyz-123", "created_at": 1700000001, "title": "First Blog Post", "content_html": "<p>This is our first social post!</p>" }
 ];
 const mockSeoSnippets = {
     "head_snippet": "<!-- Google Analytics -->",
@@ -44,9 +38,7 @@ const authenticate = (req, res, next) => {
     next();
 };
 
-// --- API Endpoints (These will still work) ---
-// All API routes now *must* have a prefix like /v1/ to avoid
-// conflicting with the static website files.
+// --- API Endpoints ---
 
 // "WRITE" endpoint for your Bitrig App
 app.post('/v1/content', authenticate, (req, res) => {
@@ -81,29 +73,31 @@ app.get('/v1/seo_snippets', authenticate, (req, res) => {
     res.json({ success: true, data: mockSeoSnippets });
 });
 
-// "DOWNLOAD" endpoint for the Plugin
-app.get('/download/plugin', (req, res) => {
-    // We assume the zip file is in the root, *not* in the public folder.
-    // You will need to upload 'telekenisis-content-sync.zip' to GitHub.
-    const file = path.join(__dirname, 'telekenisis-content-sync.zip');
-    res.download(file, (err) => {
+// --- NEW, EXPLICIT DOWNLOAD ROUTE ---
+// This code has been changed. It no longer uses the old "/download/plugin"
+// It now *explicitly* serves the file from the public folder.
+app.get('/telekenisis-content-sync.zip', (req, res) => {
+    const file = path.join(__dirname, 'public', 'telekenisis-content-sync.zip');
+    
+    // Use res.download() to force the browser to download it.
+    res.download(file, 'telekenisis-content-sync.zip', (err) => {
         if (err) {
-            console.error("Plugin download error:", err.message);
-            res.status(404).json({ success: false, message: "Plugin file not found. (Did you upload it to GitHub?)" });
+            // This log will show up in Render if the file is *still* not found
+            console.error("CRITICAL: /public/telekenisis-content-sync.zip not found.", err.message);
+            res.status(404).json({ success: false, message: "File not found. The server could not find the zip file." });
         }
     });
 });
 
 // --- NEW: Handle Website Root ---
-// This makes sure that if someone just goes to the root URL,
-// they get the index.html file.
+// This is your homepage
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // --- Start Server ---
 app.listen(port, () => {
-    console.log(`API and Website server running on port ${port}`);
+    console.log(`API and Website server (v9) running on port ${port}`);
     console.log('---');
     console.log('Website is served from the "public" folder.');
     console.log('API is available under the "/v1/" prefix.');
