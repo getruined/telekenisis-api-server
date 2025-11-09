@@ -8,9 +8,6 @@ app.use(cors());
 app.use(express.json());
 
 // --- 1. Serve Static Files ---
-// This one line tells Express to serve *everything* inside
-// your "public" folder (like index.html and your .zip file).
-// This is the standard, correct way.
 app.use(express.static(path.join(__dirname, 'public')));
 
 // --- 2. DYNAMIC Mock Database ---
@@ -20,6 +17,9 @@ let mockContentDB = {
     },
     "homepage-hero": {
         "content_html": "This is the AI-generated hero title... and this is the body content."
+    },
+    "features-list": {
+        "content_html": "<ul><li>Feature 1</li><li>Feature 2</li><li>Feature 3</li></ul>"
     }
 };
 
@@ -42,7 +42,6 @@ const authenticate = (req, res, next) => {
 };
 
 // --- 4. API Endpoints ---
-// (These are all correct)
 
 // "WRITE" endpoint for your Bitrig App
 app.post('/v1/content', authenticate, (req, res) => {
@@ -65,6 +64,19 @@ app.get('/v1/content/:slug', authenticate, (req, res) => {
     }
 });
 
+// --- NEW ENDPOINT TO GET ALL SLUGS ---
+app.get('/v1/content/list', authenticate, (req, res) => {
+    // Get all the "keys" (the slugs) from our database
+    const slugs = Object.keys(mockContentDB);
+    
+    // Send them as a list
+    res.json({
+        success: true,
+        data: slugs // This will be ["about-us-blurb", "homepage-hero", "features-list"]
+    });
+});
+// --- END NEW ENDPOINT ---
+
 // "READ" endpoint for Social Posts
 app.get('/v1/social_posts', authenticate, (req, res) => {
     const sinceTimestamp = parseInt(req.query.since, 10) || 0;
@@ -77,9 +89,25 @@ app.get('/v1/seo_snippets', authenticate, (req, res) => {
     res.json({ success: true, data: mockSeoSnippets });
 });
 
-// --- 5. Start Server ---
+// "DOWNLOAD" endpoint for the Plugin
+app.get('/telekenisis-content-sync.zip', (req, res) => {
+    const file = path.join(__dirname, 'public', 'telekenisis-content-sync.zip');
+    res.download(file, 'telekenisis-content-sync.zip', (err) => {
+        if (err) {
+            console.error("CRITICAL: /public/telekenisis-content-sync.zip not found.", err.message);
+            res.status(404).json({ success: false, message: "File not found. The server could not find the zip file." });
+        }
+    });
+});
+
+// --- 5. Handle Website Root ---
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// --- 6. Start Server ---
 app.listen(port, () => {
-    console.log(`API and Website server (v10) running on port ${port}`);
+    console.log(`API and Website server (v11) running on port ${port}`);
     console.log('---');
     console.log('Website is served from the "public" folder.');
     console.log('API is available under the "/v1/" prefix.');
