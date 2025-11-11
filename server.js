@@ -54,17 +54,10 @@ app.post('/v1/content', authenticate, (req, res) => {
     res.status(201).json({ success: true, data: mockContentDB[contentSlug] });
 });
 
-// "READ" endpoint for your WordPress Plugin
-app.get('/v1/content/:slug', authenticate, (req, res) => {
-    const slug = req.params.slug;
-    if (mockContentDB[slug]) {
-        res.json({ success: true, data: mockContentDB[slug] });
-    } else {
-        res.status(404).json({ success: false, message: 'Content not found' });
-    }
-});
-
-// --- NEW ENDPOINT TO GET ALL SLUGS ---
+// --- ROUTE ORDER FIX ---
+// The specific route for "/list" MUST come BEFORE the dynamic route "/:slug"
+//
+// "READ" endpoint for the Slug List
 app.get('/v1/content/list', authenticate, (req, res) => {
     // Get all the "keys" (the slugs) from our database
     const slugs = Object.keys(mockContentDB);
@@ -75,7 +68,18 @@ app.get('/v1/content/list', authenticate, (req, res) => {
         data: slugs // This will be ["about-us-blurb", "homepage-hero", "features-list"]
     });
 });
-// --- END NEW ENDPOINT ---
+
+// "READ" endpoint for a single slug
+app.get('/v1/content/:slug', authenticate, (req, res) => {
+    const slug = req.params.slug;
+    if (mockContentDB[slug]) {
+        res.json({ success: true, data: mockContentDB[slug] });
+    } else {
+        // This is what was being triggered by mistake
+        res.status(404).json({ success: false, message: 'Content not found' });
+    }
+});
+// --- END ROUTE ORDER FIX ---
 
 // "READ" endpoint for Social Posts
 app.get('/v1/social_posts', authenticate, (req, res) => {
@@ -91,8 +95,8 @@ app.get('/v1/seo_snippets', authenticate, (req, res) => {
 
 // "DOWNLOAD" endpoint for the Plugin
 app.get('/telekenisis-content-sync.zip', (req, res) => {
-    const file = path.join(__dirname, 'public', 'telekenisis-content-sync.zip');
-    res.download(file, 'telekenisis-content-sync.zip', (err) => {
+    const file = path.join(__dirname, 'public', 'telekenisisit-content-sync.zip');
+    res.download(file, 'telekenisisit-content-sync.zip', (err) => {
         if (err) {
             console.error("CRITICAL: /public/telekenisis-content-sync.zip not found.", err.message);
             res.status(404).json({ success: false, message: "File not found. The server could not find the zip file." });
@@ -107,7 +111,7 @@ app.get('/', (req, res) => {
 
 // --- 6. Start Server ---
 app.listen(port, () => {
-    console.log(`API and Website server (v11) running on port ${port}`);
+    console.log(`API and Website server (v12) running on port ${port}`);
     console.log('---');
     console.log('Website is served from the "public" folder.');
     console.log('API is available under the "/v1/" prefix.');
