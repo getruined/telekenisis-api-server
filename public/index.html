@@ -1,104 +1,303 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telekenisisit - AI Content Sync for WordPress</title>
+    <title>Telekinesis IT - The All-in-One Agency Operating System</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
+        /* Custom styles for accent colors and minor tweaks */
+        :root {
+            --primary-color: #0d47a1; /* A deep, professional blue */
+            --accent-color: #00e5ff;  /* A bright, energetic cyan */
         }
-        .gradient-bg {
-            background: linear-gradient(120deg, #6c1fff, #b49bff);
-        }
-        .feature-icon {
-            background: linear-gradient(120deg, #ece3ff, #f3f0ff);
-            border: 1px solid #ddd6fe;
+        .bg-primary { background-color: var(--primary-color); }
+        .text-accent { color: var(--accent-color); }
+        .border-accent { border-color: var(--accent-color); }
+        .ring-accent { --tw-ring-color: var(--accent-color); }
+        .bg-accent { background-color: var(--accent-color); }
+
+        /* Style for the FAQ accordion arrow */
+        details[open] summary .arrow {
+            transform: rotate(180deg);
         }
     </style>
 </head>
-<body class="bg-white text-gray-800 antialiased">
+<body class="bg-gray-900 text-gray-200 font-sans antialiased">
 
     <!-- Header -->
-    <header class="absolute top-0 left-0 w-full z-10 py-5">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="text-2xl font-bold text-white">TelekenisisIT</div>
-            <a href="#download" class="bg-white text-indigo-600 font-semibold py-2 px-5 rounded-full shadow-md hover:bg-gray-100 transition duration-300">Get Plugin</a>
-        </div>
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- UPDATED LOGO HERE -->
+            <a href="index.html" title="Telekinesis IT Home">
+                <img src="logo.png" alt="Telekinesis IT Logo" class="h-10 w-auto" onerror="this.style.display='none'; this.after(document.createTextNode('Telekinesis IT'))">
+            </a>
+            <div class="hidden md:flex items-center space-x-8 text-sm">
+                <a href="#features" class="hover:text-accent transition-colors">Features</a>
+                <a href="#pricing" class="hover:text-accent transition-colors">Pricing</a>
+                <a href="#testimonials" class="hover:text-accent transition-colors">Testimonials</a>
+            </div>
+            <!-- UPDATED LINK to App Store -->
+            <a href="https://apps.apple.com/app/id[YOUR_APP_ID_HERE]" target="_blank" class="hidden md:inline-block bg-accent text-primary font-bold py-2 px-5 rounded-lg hover:opacity-90 transition-opacity">Download App</a>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="gradient-bg text-white h-[70vh] min-h-[600px] flex items-center justify-center relative overflow-hidden pt-20">
-        <div class="container mx-auto px-6 text-center z-10">
-            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">AI Content Creation, Seamlessly Synced</h1>
-            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-90">Create content in our AI-powered app. Publish it to your WordPress site with a single click.</p>
-            <a href="#download" class="bg-white text-indigo-600 font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-gray-100 transition duration-300">Download the Plugin Now</a>
-        </div>
-        <!-- Simple background graphic element -->
-        <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-white/10 rounded-full"></div>
-        <div class="absolute -top-10 -right-10 w-80 h-80 bg-white/15 rounded-full"></div>
-    </section>
+    <main>
+        <!-- Hero Section -->
+        <section class="py-20 md:py-32 bg-gray-900">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">Run Your Entire SEO Agency<br class="hidden md:block"> from Your <span class="text-accent">iPhone</span></h1>
+                <p class="mt-6 max-w-2xl mx-auto text-lg text-gray-400">Stop juggling 10+ disconnected tools. Telekinesis IT streamlines your clients, projects, billing, and reporting into one powerful, mobile-first platform.</p>
+                <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <!-- UPDATED LINK to App Store -->
+                    <a href="https://apps.apple.com/app/id[YOUR_APP_ID_HERE]" target="_blank" class="w-full sm:w-auto bg-accent text-primary font-bold py-4 px-8 rounded-lg text-lg hover:opacity-90 transition-opacity">Download on the App Store</a>
+                    <a href="how-it-works.html" class="w-full sm:w-auto bg-gray-700/50 text-white font-bold py-4 px-8 rounded-lg text-lg hover:bg-gray-700 transition-colors">See How It Works</a>
+                </div>
+                <p class="mt-4 text-sm text-gray-500">Available for iOS. Join 500+ agencies already scaling their business.</p>
+            </div>
+        </section>
 
-    <!-- Features Section -->
-    <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">How It Works</h2>
-            <div class="grid md:grid-cols-3 gap-10">
-                <!-- Feature 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
-                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                        <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+        <!-- Value Proposition Section -->
+        <section class="py-16 bg-gray-800/50">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                    <div class="flex items-center justify-center md:justify-start space-x-3">
+                        <svg class="w-6 h-6 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-gray-300">All-in-one agency OS</span>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">1. Create in the App</h3>
-                    <p class="text-gray-600">Use our AI-powered Bitrig app to generate perfect, SEO-optimized content, social posts, and snippets.</p>
-                </div>
-                <!-- Feature 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
-                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                        <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <div class="flex items-center justify-center md:justify-start space-x-3">
+                        <svg class="w-6 h-6 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-gray-300">Save 10+ hours per week</span>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">2. Save to Cloud</h3>
-                    <p class="text-gray-600">With one click, your content is saved securely to your cloud database, ready to be published.</p>
-                </div>
-                <!-- Feature 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
-                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                        <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-2-9.617A4.5 4.5 0 105.9 11.95A4 4 0 003 15z"></path></svg>
+                    <div class="flex items-center justify-center md:justify-start space-x-3">
+                        <svg class="w-6 h-6 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-gray-300">Increase client retention</span>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">3. Sync to WordPress</h3>
-                    <p class="text-gray-600">Our plugin automatically fetches your new content and displays it on your site. No copy-pasting, ever.</p>
+                    <div class="flex items-center justify-center md:justify-start space-x-3">
+                        <svg class="w-6 h-6 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="text-gray-300">Enterprise-grade security</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Download Section -->
-    <section id="download" class="py-20 bg-gray-800 text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-6">Get Your Plugin Today</h2>
-            <p class="text-lg mb-8 max-w-2xl mx-auto opacity-90">Download the free WordPress plugin and get your API key from the app to connect your ecosystem.</p>
-            <div class="flex justify-center space-x-4">
-                <!--
-                  THIS IS THE FIXED LINK WITH THE TYPO "telekenisisit" CORRECTED
-                -->
-                <a href="telekenisisit-content-sync.zip" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-indigo-500 transition duration-300">
-                    Download Plugin (.zip)
-                </a>
-                <a href="#" class="bg-gray-700 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-gray-600 transition duration-300">
-                    Get App (Coming Soon)
-                </a>
+        <!-- Features Section -->
+        <section id="features" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Built by SEOs, for SEOs.</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-400">Everything you need to manage and scale your agency, and nothing you don't.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-gray-800/50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-white">Client & Project Management</h3>
+                        <p class="mt-2 text-gray-400">Never lose track of client details or project status. Clients can track progress 24/7, reducing "status update" emails by 80%.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="bg-gray-800/50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-white">Proven SEO Task Templates</h3>
+                        <p class="mt-2 text-gray-400">Onboard new team members in days, not weeks, with 150+ pre-built SEO task templates covering 13 workflow phases.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="bg-gray-800/50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-white">Intelligent Billing & Payments</h3>
+                        <p class="mt-2 text-gray-400">Reduce payment collection time by 50% with automated invoicing, Stripe integration, and a professional client payment portal.</p>
+                    </div>
+                    <!-- Feature 4 -->
+                    <div class="bg-gray-800/50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-white">SEO Reporting & Analytics</h3>
+                        <p class="mt-2 text-gray-400">Turn raw Semrush or Ahrefs data into client-ready insights in minutes. Show ROI with beautiful visualizations.</p>
+                    </div>
+                    <!-- Feature 5 -->
+                    <div class="bg-gray-800/50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-white">Social Media Management</h3>
+                        <p class="mt-2 text-gray-400">Reduce back-and-forth by 70% with a streamlined content approval workflow and visual post previews.</p>
+                    </div>
+                    <!-- Feature 6 -->
+                    <div class="bg-gray-800/50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-white">AI-Powered Tools</h3>
+                        <p class="mt-2 text-gray-400">Get expert guidance instantly with our AI SEO Advisor, headline generator, and copywriting assistant.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 bg-gray-800/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Trusted by Growing Agencies</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-400">See how Telekinesis IT is transforming the way SEO professionals work.</p>
+                </div>
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-gray-900 p-8 rounded-lg">
+                        <p class="text-gray-300 italic">"Since switching to Telekinesis IT, we've doubled our client roster without hiring more staff. The task templates alone save us 15 hours per week."</p>
+                        <div class="mt-6 font-bold text-white">— Sarah Chen</div>
+                        <div class="text-sm text-accent">Founder, Peak SEO Agency</div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="bg-gray-900 p-8 rounded-lg">
+                        <p class="text-gray-300 italic">"My clients love the transparency. They can check their progress anytime, which has reduced 'Where are we at?' emails by 90%."</p>
+                        <div class="mt-6 font-bold text-white">— Marcus Johnson</div>
+                        <div class="text-sm text-accent">Freelance SEO Consultant</div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="bg-gray-900 p-8 rounded-lg">
+                        <p class="text-gray-300 italic">"Finally, an agency tool that doesn't cost $300/month. Telekinesis IT pays for itself in the first week. It’s a no-brainer."</p>
+                        <div class="mt-6 font-bold text-white">— Amanda Rodriguez</div>
+                        <div class="text-sm text-accent">Owner, Digital Boost Marketing</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Pricing That Scales With You</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-400">From solo consultant to a full-service agency, we have a plan for you. All plans managed through the App Store.</p>
+                </div>
+                <div class="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <!-- Free Tier -->
+                    <div class="bg-gray-800 p-8 rounded-lg border border-gray-700 flex flex-col">
+                        <h3 class="text-2xl font-bold text-white">Free</h3>
+                        <p class="text-gray-400 mt-2">Perfect for getting started.</p>
+                        <p class="text-5xl font-extrabold text-white mt-6">$0<span class="text-lg font-medium text-gray-400">/mo</span></p>
+                        <ul class="space-y-4 mt-8 text-gray-300 flex-grow">
+                            <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Up to 3 clients</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Basic task management</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Manual invoicing</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Community support</li>
+                        </ul>
+                        <!-- UPDATED LINK to App Store -->
+                        <a href="https://apps.apple.com/app/id[YOUR_APP_ID_HERE]" target="_blank" class="mt-8 block w-full text-center bg-gray-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-600 transition-colors">Download App</a>
+                    </div>
+                    <!-- Professional Tier -->
+                    <div class="bg-primary p-8 rounded-lg border-2 border-accent relative flex flex-col">
+                        <span class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-accent text-primary text-xs font-bold uppercase px-3 py-1 rounded-full">Most Popular</span>
+                        <h3 class="text-2xl font-bold text-white">Professional</h3>
+                        <p class="text-gray-300 mt-2">For pros ready to grow.</p>
+                        <p class="text-5xl font-extrabold text-white mt-6">$29<span class="text-lg font-medium text-gray-400">/mo</span></p>
+                        <ul class="space-y-4 mt-8 text-gray-200 flex-grow">
+                            <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Unlimited clients</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>AI tools unlocked</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Payment gateway integration</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>SEO report imports</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Priority support</li>
+                        </ul>
+                        <!-- UPDATED LINK to App Store -->
+                        <a href="https://apps.apple.com/app/id[YOUR_APP_ID_HERE]" target="_blank" class="mt-8 block w-full text-center bg-accent text-primary font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity">Get Started</a>
+                    </div>
+                    <!-- Agency Tier -->
+                    <div class="bg-gray-800 p-8 rounded-lg border border-gray-700 flex flex-col">
+                        <h3 class="text-2xl font-bold text-white">Agency</h3>
+                        <p class="text-gray-400 mt-2">For scaling teams.</p>
+                        <p class="text-5xl font-extrabold text-white mt-6">$99<span class="text-lg font-medium text-gray-400">/mo</span></p>
+                        <ul class="space-y-4 mt-8 text-gray-300 flex-grow">
+                            <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Everything in Professional</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Unlimited team members</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>White-label client portal</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Dedicated account manager</li>
+                        </ul>
+                        <!-- UPDATED LINK to App Store -->
+                        <a href="https://apps.apple.com/app/id[YOUR_APP_ID_HERE]" target="_blank" class="mt-8 block w-full text-center bg-gray-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-600 transition-colors">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Objection Handling / FAQ Section -->
+        <section class="py-20 bg-gray-800/50">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Frequently Asked Questions</h2>
+                </div>
+                <div id="faq-container" class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <details class="bg-gray-900 p-6 rounded-lg group">
+                        <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg text-white">
+                            We already use other project management tools.
+                            <span class="arrow transition-transform duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            </span>
+                        </summary>
+                        <p class="mt-4 text-gray-400">Telekinesis IT is built specifically for SEOs and replaces 5+ tools you're currently paying for, including billing, reporting, and a client portal. See how much you'll save and simplify your stack.</p>
+                    </details>
+                    <!-- FAQ Item 2 -->
+                    <details class="bg-gray-900 p-6 rounded-lg group">
+                        <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg text-white">
+                            Will my team actually adopt it?
+                            <span class="arrow transition-transform duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            </span>
+                        </summary>
+                        <p class="mt-4 text-gray-400">Absolutely. Agencies report 95% team adoption within 2 weeks. The intuitive iPhone interface requires minimal training, and our proven templates get everyone on the same page, fast.</p>
+                    </details>
+                    <!-- FAQ Item 3 -->
+                    <details class="bg-gray-900 p-6 rounded-lg group">
+                        <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg text-white">
+                            Is my client data secure?
+                            <span class="arrow transition-transform duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            </span>
+                        </summary>
+                        <p class="mt-4 text-gray-400">Security is our top priority. We use bank-level encryption, mandatory 2FA, biometric authentication, and are fully PCI-compliant. Your client data is safer here than in spreadsheets.</p>
+                    </details>
+                    <!-- FAQ Item 4 -->
+                    <details class="bg-gray-900 p-6 rounded-lg group">
+                        <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg text-white">
+                            What if I'm just a solo consultant?
+                            <span class="arrow transition-transform duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            </span>
+                        </summary>
+                        <p class="mt-4 text-gray-400">Perfect! Telekinesis IT was designed to help solo freelancers scale. Start by downloading the app and upgrade as you grow. No contracts, ever.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                 <h2 class="text-3xl md:text-4xl font-bold text-white">Ready to Dominate Your Market?</h2>
+                 <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-400">Stop managing. Start scaling. Get the only tool built by SEOs, for SEOs, and see the difference in your first week.</p>
+                 <div class="mt-10">
+                    <!-- UPDATED LINK to App Store -->
+                    <a href="https://apps.apple.com/app/id[YOUR_APP_ID_HERE]" target="_blank" class="bg-accent text-primary font-bold py-4 px-10 rounded-lg text-lg hover:opacity-90 transition-opacity">Download the App</a>
+                 </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="py-10 bg-gray-900 text-gray-400">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2025 TelekenisisIT. All rights reserved.</p>
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500 text-sm">
+            &copy; 2025 Telekinesis IT. All Rights Reserved. A product of getruined.ca.
         </div>
     </footer>
+
+    <script>
+        // Simple script to handle FAQ accordion behavior to close other items
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqContainer = document.getElementById('faq-container');
+            if (faqContainer) {
+                const details = faqContainer.querySelectorAll('details');
+                details.forEach(targetDetail => {
+                    targetDetail.addEventListener('click', () => {
+                        details.forEach(detail => {
+                            if (detail !== targetDetail) {
+                                detail.removeAttribute('open');
+                            }
+                        });
+                    });
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
