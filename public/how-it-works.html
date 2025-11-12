@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - Telekinesis IT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #0d47a1;
+            --accent-color: #00e5ff;
+        }
+        .bg-primary { background-color: var(--primary-color); }
+        .text-accent { color: var(--accent-color); }
+        .border-accent { border-color: var(--accent-color); }
+        .bg-accent { background-color: var(--accent-color); }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 font-sans antialiased">
+
+    <!-- Header -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- UPDATED LOGO HERE -->
+            <a href="index.html" title="Telekinesis IT Home">
+                <img src="logo.png" alt="Telekinesis IT Logo" class="h-10 w-auto" onerror="this.style.display='none'; this.after(document.createTextNode('Telekinesis IT'))">
+            </a>
+            <!-- UPDATED LINK to App Store -->
+            <a href="https://apps.apple.com/app/id[YOUR_APP_ID_HERE]" target="_blank" class="bg-accent text-primary font-bold py-2 px-5 rounded-lg hover:opacity-90 transition-opacity">Download App</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">See Telekinesis IT in Action</h1>
+                <p class="mt-6 max-w-2xl mx-auto text-lg text-gray-400">Follow the workflow from an agency's mission control dashboard to a happy, informed client. See how our features connect to save you time and scale your business.</p>
+            </div>
+        </section>
+
+        <!-- Feature Walkthrough -->
+        <section class="py-16 space-y-20">
+
+            <!-- Step 1: Agency Dashboard -->
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div class="md:pr-8">
+                    <span class="text-accent font-bold">Step 1</span>
+                    <h2 class="text-3xl font-bold text-white mt-2">Your Agency's Mission Control</h2>
+                    <p class="mt-4 text-gray-400">The Agency Dashboard gives you a complete overview of your operations at a glance. Instantly see how many clients you have, track pending social media posts, and monitor total and outstanding revenue. It’s your command center for making informed decisions.</p>
+                </div>
+                <div>
+                    <img src="https://placehold.co/1200x800/1a202c/00e5ff?text=Agency+Dashboard+Screenshot" alt="Agency Dashboard showing client count and revenue metrics" class="rounded-lg shadow-2xl shadow-blue-900/20">
+                </div>
+            </div>
+
+            <!-- Step 2: Client Management -->
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div class="md:order-2 md:pl-8">
+                    <span class="text-accent font-bold">Step 2</span>
+                    <h2 class="text-3xl font-bold text-white mt-2">Centralized Client Management</h2>
+                    <p class="mt-4 text-gray-400">No more searching through spreadsheets. Add, view, and manage all your clients in one organized list. Every client has a dedicated profile, ensuring all their contact details, projects, and billing history are just a tap away.</p>
+                </div>
+                <div class="md:order-1">
+                    <img src="https://placehold.co/1200x800/1a202c/00e5ff?text=Client+List+Screenshot" alt="Client list view with search bar" class="rounded-lg shadow-2xl shadow-blue-900/20">
+                </div>
+            </div>
+
+            <!-- Step 3: Task Management -->
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div class="md:pr-8">
+                    <span class="text-accent font-bold">Step 3</span>
+                    <h2 class="text-3xl font-bold text-white mt-2">Visual Kanban Project Boards</h2>
+                    <p class="mt-4 text-gray-400">Manage every client project with a clear, visual Kanban board. Drag and drop tasks between 'To Do', 'In Progress', and 'Done'. This simple yet powerful system ensures your team always knows what to work on next and deadlines are never missed.</p>
+                </div>
+                <div>
+                    <img src="https://placehold.co/1200x800/1a202c/00e5ff?text=Client+Task+Board+Screenshot" alt="Kanban board showing tasks for a client" class="rounded-lg shadow-2xl shadow-blue-900/20">
+                </div>
+            </div>
+            
+            <!-- Step 4: Billing -->
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div class="md:order-2 md:pl-8">
+                    <span class="text-accent font-bold">Step 4</span>
+                    <h2 class="text-3xl font-bold text-white mt-2">Intelligent & Automated Billing</h2>
+                    <p class="mt-4 text-gray-400">Stop chasing payments. Create and send professional invoices for one-time jobs or recurring subscriptions in seconds. Track outstanding balances for each client and get paid faster with integrated payment gateways.</p>
+                </div>
+                <div class="md:order-1">
+                    <img src="https://placehold.co/1200x800/1a202c/00e5ff?text=Client+Billing+Screenshot" alt="Billing view showing outstanding balance and a list of invoices" class="rounded-lg shadow-2xl shadow-blue-900/20">
+                </div>
+            </div>
+
+            <!-- Step 5: Social Post Approval -->
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div class="md:pr-8">
+                    <span class="text-accent font-bold">Step 5</span>
+                    <h2 class="text-3xl font-bold text-white mt-2">Seamless Social Post Approval</h2>
+                    <p class="mt-4 text-gray-400">End the back-and-forth emails. Submit social media posts for client review directly through the app. The client gets a notification, sees a preview of the post, and can approve or reject it with one tap. This simple workflow cuts down revision time by over 70%.</p>
+                </div>
+                <div>
+                    <img src="https://placehold.co/1200x800/1a202c/00e5ff?text=Social+Post+Approval+Screenshot" alt="Social post card with approve and reject buttons" class="rounded-lg shadow-2xl shadow-blue-900/20">
+                </div>
+            </div>
+
+            <!-- Step 6: Client Portal -->
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                 <div class="md:order-2 md:pl-8">
+                    <span class="text-accent font-bold">Step 6</span>
+                    <h2 class="text-3xl font-bold text-white mt-2">The Transparent Client Portal</h2>
+                    <p class="mt-4 text-gray-400">Empower your clients with a simple, secure portal where they can view project progress, approve social posts, and see their latest SEO reports. This transparency builds incredible trust and drastically reduces "just checking in" emails and calls.</p>
+                </div>
+                <div class="md:order-1">
+                    <img src="https://placehold.co/1200x800/1a202c/00e5ff?text=Client+Portal+Screenshot" alt="Client portal view showing SEO progress and social posts" class="rounded-lg shadow-2xl shadow-blue-900/20">
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="py-20 bg-gray-800/50">
+            <div class="container mx-auto px-6 text-center">
+                 <h2 class="text-3xl md:text-4xl font-bold text-white">Ready to Streamline Your Agency?</h2>
+                 <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-400">Stop managing tasks and start building your empire. Get the only tool built by SEOs, for SEOs, and see the difference in your first week.</p>
+                 <div class="mt-10">
+                    <!-- UPDATED LINK to App Store -->
+                    <a href="https://apps.apple.com/app/id[YOUR_APP_ID_HERE]" target="_blank" class="bg-accent text-primary font-bold py-4 px-10 rounded-lg text-lg hover:opacity-90 transition-opacity">Download on the App Store</a>
+                    <p class="mt-4 text-sm text-gray-500">Available for iOS</p>
+                 </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500 text-sm">
+            &copy; 2025 Telekinesis IT. All Rights Reserved. A product of getruined.ca.
+        </div>
+    </footer>
+
+</body>
+</html>
